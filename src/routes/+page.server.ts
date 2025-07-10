@@ -1,9 +1,8 @@
 import { driver, auth } from 'neo4j-driver'
-
 // URI examples: 'neo4j://localhost', 'neo4j+s://xxx.databases.neo4j.io'
 const URI = 'neo4j://localhost'
 const USER = 'neo4j'
-const PASSWORD = '***REMOVED***'
+const PASSWORD = process.env.DATABASE_PASSWORD;
 
 let neo4j_driver = driver(URI, auth.basic(USER, PASSWORD))
 let session = await neo4j_driver.session()
